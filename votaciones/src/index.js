@@ -1,36 +1,44 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  const [stadisctics, setStadisctics] = useState({});
+  const [stadisctics, setStadisctics] = useState({total: 0, average: 0, positive: 0});
 
-  const stadisctics_ = (good, neutral, bad) => {
+  const stadisctics_calculate = (good, neutral, bad) => {
     let total = good + neutral + bad;
     let average = (good - bad) / total;
     let positive = good / total * 100;
     return {
-      "total": total,
-      "average": average,
-      "positive": positive
+      total: total,
+      average: average,
+      positive: positive
     }
   };
 
-  useEffect(() => {
-    setGood(6);
-    setNeutral(2);
-    setBad(1);
-    setStadisctics(stadisctics_(good, neutral, bad));
-  });
-
+  const handleGood = () => {
+    let newGood = good + 1;
+    setGood(newGood);
+    setStadisctics(stadisctics_calculate(newGood, neutral, bad));
+  };
+  const handleNeutral = () => {
+    let newNeutral = neutral + 1;
+    setNeutral(newNeutral);
+    setStadisctics(stadisctics_calculate(good, newNeutral, bad));
+  };
+  const handleBad = () => {
+    let newBad = bad + 1;
+    setBad(newBad);
+    setStadisctics(stadisctics_calculate(good, neutral, newBad));
+  };
   return (
     <div>
       <h1>Give Feedback</h1>
-      <button>Good</button>
-      <button>Neutral</button>
-      <button>Bad</button>
+      <button onClick={handleGood}>Good</button>
+      <button onClick={handleNeutral}>Neutral</button>
+      <button onClick={handleBad}>Bad</button>
       <br />
       <h3>Statistics</h3>
       <ul>
