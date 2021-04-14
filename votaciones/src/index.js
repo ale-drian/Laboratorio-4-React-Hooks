@@ -37,13 +37,15 @@ const App = () => {
     setStatisticsResult(stadisctics_calculate(good, neutral, newBad));
   };
   return (
-    <div>
-      <h1>Give Feedback</h1>
+    <div className="container p-10">
+      <h1 className="font-bold text-4xl">Give Feedback</h1>
       <Button handle={handleGood} text="Good"/>
       <Button handle={handleNeutral} text="Neutral"/>
       <Button handle={handleBad} text="Bad"/>
       <br />
-      <h3>Statistics</h3>
+      <br />
+      <h3 className="font-semibold text-3xl">Statistics</h3>
+      <br />
       {
         statisticsResult.total != 0
         ?
