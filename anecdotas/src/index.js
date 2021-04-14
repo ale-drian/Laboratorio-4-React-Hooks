@@ -4,9 +4,20 @@ import ReactDOM from 'react-dom'
 const App = (props) => {
   const [selected, setSelected] = useState(0)
 
+  const randomWithMax = (max) => { 
+    return Math.floor(Math.random() * (max));
+  }
+
+  const handleSelected = () => {
+    let indexRandom = randomWithMax(anecdotes.length);
+    console.log("indexRandom",indexRandom);
+    setSelected(indexRandom);
+  }
+
   return (
     <div>
-      {props.anecdotes[selected]}
+      <button onClick={handleSelected}>New Anecdote</button>
+      <p>{props.anecdotes[selected]}</p>
     </div>
   )
 }
