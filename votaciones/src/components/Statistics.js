@@ -2,11 +2,11 @@ import Statistic from './Statistic';
 
 const Statistics = ({good, neutral, bad, statisticsResult}) => {
   return (
-    <div className="md:w-1/4">
-        <table class="border-4 border-yellow-600 table-auto md:w-full">
+    <div className="lg:w-1/4 md:w-2/4 sm:w-full">
+        <table class="border-4 border-yellow-600 table-auto w-full">
             <thead>
                 <tr className="bg-yellow-200">
-                    <th class="border-4 border-yellow-600 md:w-2/5  border-4">Votes</th>
+                    <th class="border-4 border-yellow-600 w-2/5  border-4">Votes</th>
                     <th class="border-4 border-yellow-600">Total</th>
                 </tr>
             </thead>
@@ -17,10 +17,10 @@ const Statistics = ({good, neutral, bad, statisticsResult}) => {
             </tbody>
         </table>
         <br/>
-        <table class="border-4 border-green-800 table-auto md:w-full">
+        <table class="border-4 border-green-800 table-auto w-full">
             <thead>
                 <tr className="bg-green-200">
-                    <th class="border-4 border-green-600 md:w-2/5">Property</th>
+                    <th class="border-4 border-green-600 w-2/5">Property</th>
                     <th class="border-4 border-green-600">Value</th>
                 </tr>
             </thead>
