@@ -1,3 +1,20 @@
+# Laboratorio 4 - React Hooks
+
+## Votaciones
+Resultado del proyecto votaciones
+
+![2021-04-13_23h42_17 (online-video-cutter com)](https://user-images.githubusercontent.com/79278185/114671268-834aa980-9cc9-11eb-9a61-5d20dbcb9d46.gif)
+
+
+## Anecdotas
+Resultado del proyecto anecdotas
+
+![2021-04-14_02h25_11 (online-video-cutter com)](https://user-images.githubusercontent.com/79278185/114671357-9fe6e180-9cc9-11eb-8f0e-4e54139a7ee8.gif)
+
+
+## Framework
+Para estilos: Tailwind (https://tailwindcss.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
