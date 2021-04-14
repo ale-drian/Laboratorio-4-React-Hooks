@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 const App = (props) => {
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState(props.anecdotes[selected].votes);
+  const [indexMax, setIndexMax] = useState(0);
 
   const randomWithMax = (max) => { 
     return Math.floor(Math.random() * (max));
@@ -17,14 +18,26 @@ const App = (props) => {
   const handleVoted = () => {
     anecdotes[selected].votes+=1;
     setVotes(votes+1)
+    setIndexMax(mostVoted());
+  }
+
+  const mostVoted = () => {
+    let arrayVotes = anecdotes.map(x => x.votes);
+    let voteMax = Math.max(...arrayVotes);
+    let indexMax = arrayVotes.indexOf(voteMax);
+    return indexMax;
   }
 
   return (
     <div>
+      <h2>Anecdote of the day</h2>
       <p>{props.anecdotes[selected].text}</p>
       <p>Has {votes} votes.</p>
       <button onClick={handleVoted}>Vote</button>
       <button onClick={handleSelected}>Next Anecdote</button>
+      <h2>Anecdote with most votes</h2>
+      <p>{props.anecdotes[indexMax].text}</p>
+      <p>Has {props.anecdotes[indexMax].votes} votes.</p>
     </div>
   )
 }
