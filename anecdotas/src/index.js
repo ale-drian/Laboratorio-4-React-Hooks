@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css';
 
-const Anecdote = ({text, votes}) => {
+const Anecdote = ({text, votes, color}) => {
   return (
-    <div>
-      <p>{text}</p>
+    <div className={`text-xl border-4 border-${color}-600 p-2 rounded-lg`}>
+      <p >{text}</p>
       <p>Has {votes} votes.</p>
     </div>
   );
@@ -39,13 +39,15 @@ const App = (props) => {
   }
 
   return (
-    <div>
-      <h2>Anecdote of the day</h2>
-      <Anecdote text={props.anecdotes[selected].text} votes={votes}/>
-      <button onClick={handleVoted}>Vote</button>
-      <button onClick={handleSelected}>Next Anecdote</button>
-      <h2>Anecdote with most votes</h2>
-      <Anecdote text={props.anecdotes[indexMax].text} votes={props.anecdotes[indexMax].votes}/>
+    <div className="container p-10 lg:w-2/4 md:w-3/4 sm:w-full">
+      <h2 className="font-bold text-4xl">Anecdote of the day</h2>
+      <Anecdote text={props.anecdotes[selected].text} votes={votes} color="green"/>
+      <button className="px-6 py-2 mr-2 mb-5 mt-2 bg-red-700 text-white font-medium text-xl rounded-md hover:bg-red-500" 
+              onClick={handleVoted}>Vote</button>
+      <button className="px-6 py-2 mb-5 mt-2 bg-blue-900 text-white font-medium text-xl rounded-md hover:bg-blue-500" 
+              onClick={handleSelected}>Next Anecdote</button>
+      <h2 className="font-bold text-4xl">Anecdote with most votes</h2>
+      <Anecdote text={props.anecdotes[indexMax].text} votes={props.anecdotes[indexMax].votes} color="yellow"/>
     </div>
   )
 }
