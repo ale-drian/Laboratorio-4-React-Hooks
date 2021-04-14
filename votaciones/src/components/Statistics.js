@@ -1,15 +1,14 @@
+import Statistic from './Statistic';
 
 const Statistics = ({good, neutral, bad, statisticsResult}) => {
   return (
     <div>
-      <ul>
-        <li>Good: {good}</li>
-        <li>Neutral: {neutral}</li>
-        <li>Bad: {bad}</li>
-        <li>Total: {statisticsResult.total}</li>
-        <li>Average: {statisticsResult.average}</li>
-        <li>Positive: {statisticsResult.positive} %</li>
-      </ul>
+        <Statistic text="Good" value={good}/>
+        <Statistic text="Neutral" value={neutral}/>
+        <Statistic text="Bad" value={bad}/>
+        <Statistic text="Total" value={statisticsResult.total}/>
+        <Statistic text="Average" value={statisticsResult.average}/>
+        <Statistic text="Positive" value={statisticsResult.positive} symbol="%"/>
     </div>
   )
 }
